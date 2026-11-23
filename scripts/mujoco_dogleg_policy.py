@@ -40,7 +40,9 @@ NEUTRAL_DEG = {
     "right_upper_rocker": -39.7462030700,
 }
 
-ACTIVE_LEG = ["left_hip_thigh", "right_hip_thigh", "left_hip_upper", "right_hip_upper"]
+# This is the deployment/training contract order:
+# left_front1, left_rear1, right_front1, right_rear1.
+ACTIVE_LEG = ["left_hip_thigh", "left_hip_upper", "right_hip_thigh", "right_hip_upper"]
 PASSIVE_LEG = [
     "left_knee", "right_knee", "left_thigh_ternary", "right_thigh_ternary",
     "left_ternary_coupler", "right_ternary_coupler", "left_upper_rocker", "right_upper_rocker",
