@@ -14,6 +14,20 @@ import gymnasium as gym
 
 from agent_tasks.direct.wheelbipe import agents
 
+# Isolated collision-asset comparison task; its configuration lives in a new
+# module so the production Dogleg Unified-v1 source remains unchanged.
+from . import dogleg_contactfix_compare  # noqa: F401
+
+gym.register(
+    id="Robotics-Dogleg-Rough-v1",
+    entry_point=f"{__name__}.dogleg_env:DoglegEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.dogleg_env_cfg:DoglegRoughEnvCfg_v1",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:DoglegRoughPPORunnerCfg",
+    },
+)
+
 gym.register(
     id="Robotics-Dogleg-Flat-v0",
     entry_point=f"{__name__}.dogleg_env:DoglegEnv",
@@ -30,6 +44,46 @@ gym.register(
     disable_env_checker=True,
     kwargs={
         "env_cfg_entry_point": f"{__name__}.dogleg_env_cfg:DoglegStandEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:DoglegFlatPPORunnerCfg",
+    },
+)
+
+gym.register(
+    id="Robotics-Dogleg-Unified-Flat-v0",
+    entry_point=f"{__name__}.dogleg_env:DoglegEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.dogleg_env_cfg:DoglegUnifiedEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:DoglegFlatPPORunnerCfg",
+    },
+)
+
+gym.register(
+    id="Robotics-Dogleg-Unified-Flat-v1",
+    entry_point=f"{__name__}.dogleg_env:DoglegEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.dogleg_env_cfg:DoglegUnifiedEnvCfgV1",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:DoglegFlatPPORunnerCfg",
+    },
+)
+
+gym.register(
+    id="Robotics-Dogleg-Recovery-Box-Candidate-v0",
+    entry_point=f"{__name__}.dogleg_env:DoglegEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.dogleg_env_cfg:DoglegRecoveryBoxCandidateEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:DoglegFlatPPORunnerCfg",
+    },
+)
+
+gym.register(
+    id="Robotics-Dogleg-Unified-Legacy-Asset-v0",
+    entry_point=f"{__name__}.dogleg_env:DoglegEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.dogleg_env_cfg:DoglegUnifiedLegacyAssetEnvCfg",
         "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:DoglegFlatPPORunnerCfg",
     },
 )

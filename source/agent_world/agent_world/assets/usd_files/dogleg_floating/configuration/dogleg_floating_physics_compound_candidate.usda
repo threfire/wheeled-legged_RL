@@ -1,0 +1,408 @@
+#usda 1.0
+(
+    defaultPrim = "dogleg_floating_isaac"
+    subLayers = [
+        @dogleg_floating_physics.usd@
+    ]
+)
+
+over "collisions"
+{
+    over "base_link"
+    {
+        over "dogleg_simple_body_box"
+        {
+            bool physics:collisionEnabled = 0
+        }
+
+        def Cube "dogleg_compound_box_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            bool physics:collisionEnabled = 1
+            double size = 1
+            token visibility = "invisible"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.565, 0.279, 0.147)
+            double3 xformOp:translate = (0, 0, 0.0645)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "dogleg_compound_box_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            bool physics:collisionEnabled = 1
+            double size = 1
+            token visibility = "invisible"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.1781, 0.1788, 0.0648)
+            double3 xformOp:translate = (-0.1695, -0.033, -0.0559)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "dogleg_compound_box_2" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            bool physics:collisionEnabled = 1
+            double size = 1
+            token visibility = "invisible"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.1578, 0.1705, 0.0582)
+            double3 xformOp:translate = (-0.0917, 0.002, -0.0439)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "dogleg_compound_box_3" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            bool physics:collisionEnabled = 1
+            double size = 1
+            token visibility = "invisible"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.141, 0.052, 0.1305)
+            double3 xformOp:translate = (0, 0.268, 0.0015)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "dogleg_compound_box_4" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            bool physics:collisionEnabled = 1
+            double size = 1
+            token visibility = "invisible"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.141, 0.052, 0.1305)
+            double3 xformOp:translate = (0, -0.268, 0.0015)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    over "left_front2_link"
+    {
+        over "dogleg_simple_body_box"
+        {
+            bool physics:collisionEnabled = 0
+        }
+
+        def Cube "dogleg_compound_box_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            bool physics:collisionEnabled = 1
+            double size = 1
+            token visibility = "invisible"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.314, 0.2409, 0.015)
+            double3 xformOp:translate = (0.0898, 0.0566, 0.0105)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "dogleg_compound_box_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            bool physics:collisionEnabled = 1
+            double size = 1
+            token visibility = "invisible"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.075, 0.075, 0.055)
+            double3 xformOp:translate = (0, 0, 0.022)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "dogleg_compound_box_2" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            bool physics:collisionEnabled = 1
+            double size = 1
+            token visibility = "invisible"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.09, 0.09, 0.055)
+            double3 xformOp:translate = (0.202, 0.143, 0.022)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    over "right_front2_link"
+    {
+        over "dogleg_simple_body_box"
+        {
+            bool physics:collisionEnabled = 0
+        }
+
+        def Cube "dogleg_compound_box_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            bool physics:collisionEnabled = 1
+            double size = 1
+            token visibility = "invisible"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.314, 0.2409, 0.015)
+            double3 xformOp:translate = (0.0898, -0.0566, -0.0105)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "dogleg_compound_box_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            bool physics:collisionEnabled = 1
+            double size = 1
+            token visibility = "invisible"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.075, 0.075, 0.055)
+            double3 xformOp:translate = (0, 0, -0.022)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "dogleg_compound_box_2" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            bool physics:collisionEnabled = 1
+            double size = 1
+            token visibility = "invisible"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.09, 0.09, 0.055)
+            double3 xformOp:translate = (0.202, -0.143, -0.022)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+}
+
+over "dogleg_floating_isaac"
+{
+    over "base_link"
+    {
+        over "base_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_1_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_2_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_3_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_4_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_5_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_6_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_7_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_8_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "feeder_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_front1_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_front2_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_wheel_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_front3_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_front4_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_rear1_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_rear2_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_front1_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_front2_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_wheel_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_front3_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_front4_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_rear1_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_rear2_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "gimbal_yaw_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "pitch_crank_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "pitch_rod_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "gimbal_pitch_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+    }
+}
+
