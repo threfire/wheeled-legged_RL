@@ -1,0 +1,156 @@
+#usda 1.0
+(
+    defaultPrim = "dogleg_floating_isaac"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "dogleg_floating_isaac" (
+    variants = {
+        string Physics = "PhysX"
+        string Sensor = "Sensors"
+    }
+    prepend variantSets = ["Physics", "Sensor"]
+)
+{
+    def Scope "loop_joints"
+    {
+        def PhysicsSphericalJoint "left_calf_coupler_closure_minus"
+        {
+            rel physics:body0 = </dogleg_floating_isaac/base_link/left_front2_link>
+            rel physics:body1 = </dogleg_floating_isaac/base_link/left_front4_link>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (-0.043210294, -0.051204205, -0.005)
+            point3f physics:localPos1 = (-0.09615982, 0.009211305, -0.005)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "left_calf_coupler_closure_plus"
+        {
+            rel physics:body0 = </dogleg_floating_isaac/base_link/left_front2_link>
+            rel physics:body1 = </dogleg_floating_isaac/base_link/left_front4_link>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (-0.043210294, -0.051204205, 0.005)
+            point3f physics:localPos1 = (-0.09615982, 0.009211305, 0.005)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "left_rocker_ternary_closure_minus"
+        {
+            rel physics:body0 = </dogleg_floating_isaac/base_link/left_rear2_link>
+            rel physics:body1 = </dogleg_floating_isaac/base_link/left_front3_link>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (-0.1130127, 0.073845305, -0.005)
+            point3f physics:localPos1 = (0.11270848, 0.0743088, -0.005)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "left_rocker_ternary_closure_plus"
+        {
+            rel physics:body0 = </dogleg_floating_isaac/base_link/left_rear2_link>
+            rel physics:body1 = </dogleg_floating_isaac/base_link/left_front3_link>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (-0.1130127, 0.073845305, 0.005)
+            point3f physics:localPos1 = (0.11270848, 0.0743088, 0.005)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "pitch_rod_closure_minus"
+        {
+            rel physics:body0 = </dogleg_floating_isaac/base_link/pitch_rod_link>
+            rel physics:body1 = </dogleg_floating_isaac/base_link/gimbal_pitch_link>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (-0.0044653807, 0.026628187, -0.005)
+            point3f physics:localPos1 = (-0.037891988, -0.0028630977, 0.02)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "pitch_rod_closure_plus"
+        {
+            rel physics:body0 = </dogleg_floating_isaac/base_link/pitch_rod_link>
+            rel physics:body1 = </dogleg_floating_isaac/base_link/gimbal_pitch_link>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (-0.0044653807, 0.026628187, 0.005)
+            point3f physics:localPos1 = (-0.037891988, -0.0028630977, 0.03)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "right_calf_coupler_closure_minus"
+        {
+            rel physics:body0 = </dogleg_floating_isaac/base_link/right_front2_link>
+            rel physics:body1 = </dogleg_floating_isaac/base_link/right_front4_link>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (-0.043210294, 0.051204205, -0.005)
+            point3f physics:localPos1 = (-0.09615982, -0.009211305, -0.005)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "right_calf_coupler_closure_plus"
+        {
+            rel physics:body0 = </dogleg_floating_isaac/base_link/right_front2_link>
+            rel physics:body1 = </dogleg_floating_isaac/base_link/right_front4_link>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (-0.043210294, 0.051204205, 0.005)
+            point3f physics:localPos1 = (-0.09615982, -0.009211305, 0.005)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "right_rocker_ternary_closure_minus"
+        {
+            rel physics:body0 = </dogleg_floating_isaac/base_link/right_rear2_link>
+            rel physics:body1 = </dogleg_floating_isaac/base_link/right_front3_link>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (-0.1130127, -0.073845305, -0.005)
+            point3f physics:localPos1 = (0.11270848, -0.0743088, -0.005)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "right_rocker_ternary_closure_plus"
+        {
+            rel physics:body0 = </dogleg_floating_isaac/base_link/right_rear2_link>
+            rel physics:body1 = </dogleg_floating_isaac/base_link/right_front3_link>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (-0.1130127, -0.073845305, 0.005)
+            point3f physics:localPos1 = (0.11270848, -0.0743088, 0.005)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+    }
+    variantSet "Physics" = {
+        "None" (
+            prepend references = @configuration/dogleg_floating_base.usd@
+        ) {
+            over "joints" (
+                active = false
+            )
+            {
+            }
+
+        }
+        "PhysX" (
+            prepend payload = @configuration/dogleg_floating_physics_legacy.usd@
+        ) {
+
+        }
+    }
+    variantSet "Sensor" = {
+        "None" {
+
+        }
+        "Sensors" (
+            prepend payload = @configuration/dogleg_floating_sensor.usd@
+        ) {
+
+        }
+    }
+}
+

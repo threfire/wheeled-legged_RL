@@ -1,0 +1,1361 @@
+#usda 1.0
+(
+    defaultPrim = "dogleg_floating_isaac"
+    subLayers = [
+        @dogleg_floating_physics.usd@
+    ]
+)
+
+over "dogleg_floating_isaac"
+{
+    over "base_link"
+    {
+        over "base_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_1_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_2_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_3_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_4_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_5_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_6_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_7_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "chassis_roller_8_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "feeder_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_front1_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_front2_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_wheel_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_front3_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_front4_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_rear1_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "left_rear2_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_front1_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_front2_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_wheel_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_front3_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_front4_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_rear1_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "right_rear2_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "gimbal_yaw_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "pitch_crank_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "pitch_rod_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+
+        over "gimbal_pitch_link"
+        {
+            over "visuals"
+            {
+                token visibility = "visible"
+            }
+        }
+    }
+}
+
+over "collisions"
+{
+    over "base_link"
+    {
+        over "mesh_ca0de3520c56"
+        {
+            over "mesh_ca0de3520c56"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_c56c8b79468c"
+        {
+            over "mesh_c56c8b79468c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_ca0de3520c56_1"
+        {
+            over "mesh_ca0de3520c56"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_c56c8b79468c_1"
+        {
+            over "mesh_c56c8b79468c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_ca0de3520c56_2"
+        {
+            over "mesh_ca0de3520c56"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_c56c8b79468c_2"
+        {
+            over "mesh_c56c8b79468c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_ca0de3520c56_3"
+        {
+            over "mesh_ca0de3520c56"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_c56c8b79468c_3"
+        {
+            over "mesh_c56c8b79468c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_9c5a716ad5af"
+        {
+            over "mesh_9c5a716ad5af"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_9c5a716ad5af_1"
+        {
+            over "mesh_9c5a716ad5af"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_9c5a716ad5af_2"
+        {
+            over "mesh_9c5a716ad5af"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_9c5a716ad5af_3"
+        {
+            over "mesh_9c5a716ad5af"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_723cb6d64e34"
+        {
+            over "mesh_723cb6d64e34"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_723cb6d64e34_1"
+        {
+            over "mesh_723cb6d64e34"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_723cb6d64e34_2"
+        {
+            over "mesh_723cb6d64e34"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_723cb6d64e34_3"
+        {
+            over "mesh_723cb6d64e34"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_723cb6d64e34_4"
+        {
+            over "mesh_723cb6d64e34"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_723cb6d64e34_5"
+        {
+            over "mesh_723cb6d64e34"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_723cb6d64e34_6"
+        {
+            over "mesh_723cb6d64e34"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_723cb6d64e34_7"
+        {
+            over "mesh_723cb6d64e34"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_723cb6d64e34_8"
+        {
+            over "mesh_723cb6d64e34"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_723cb6d64e34_9"
+        {
+            over "mesh_723cb6d64e34"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_61263852c7ff"
+        {
+            over "mesh_61263852c7ff"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_abd2cc36d4b3"
+        {
+            over "mesh_abd2cc36d4b3"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_682e6101e2e0"
+        {
+            over "mesh_682e6101e2e0"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_1bf480f54d08"
+        {
+            over "mesh_1bf480f54d08"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_09e953f707c3"
+        {
+            over "mesh_09e953f707c3"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_09e953f707c3_1"
+        {
+            over "mesh_09e953f707c3"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_56ba7bd6d4c1"
+        {
+            over "mesh_56ba7bd6d4c1"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_09e953f707c3_2"
+        {
+            over "mesh_09e953f707c3"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_09e953f707c3_3"
+        {
+            over "mesh_09e953f707c3"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_56ba7bd6d4c1_1"
+        {
+            over "mesh_56ba7bd6d4c1"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_74bc693d8b4d"
+        {
+            over "mesh_74bc693d8b4d"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_f0d49c80398e"
+        {
+            over "mesh_f0d49c80398e"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_cb14fc97dd8c"
+        {
+            over "mesh_cb14fc97dd8c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_20bb668fe80a"
+        {
+            over "mesh_20bb668fe80a"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_89104a1fce41"
+        {
+            over "mesh_89104a1fce41"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_df127555d919"
+        {
+            over "mesh_df127555d919"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_47b1279ca8d8"
+        {
+            over "mesh_47b1279ca8d8"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_40d349903c36"
+        {
+            over "mesh_40d349903c36"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_393b5ef3dd68"
+        {
+            over "mesh_393b5ef3dd68"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_4163272fb952"
+        {
+            over "mesh_4163272fb952"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_49bf7fbe63f7"
+        {
+            over "mesh_49bf7fbe63f7"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_4536d45dd7ce"
+        {
+            over "mesh_4536d45dd7ce"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_7bc3a100c506"
+        {
+            over "mesh_7bc3a100c506"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_5c993690db48"
+        {
+            over "mesh_5c993690db48"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_9deb1e5682ef"
+        {
+            over "mesh_9deb1e5682ef"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_a912f56ae9ef"
+        {
+            over "mesh_a912f56ae9ef"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_93ee10825595"
+        {
+            over "mesh_93ee10825595"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_cc907949a626"
+        {
+            over "mesh_cc907949a626"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_44be82b7c9c1"
+        {
+            over "mesh_44be82b7c9c1"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_26fc3be2f108"
+        {
+            over "mesh_26fc3be2f108"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_30ce5e3050d5"
+        {
+            over "mesh_30ce5e3050d5"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_75757e2a0706"
+        {
+            over "mesh_75757e2a0706"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_3927fb9a898d"
+        {
+            over "mesh_3927fb9a898d"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_00ea0b2d873b"
+        {
+            over "mesh_00ea0b2d873b"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_a9bf1b64598c"
+        {
+            over "mesh_a9bf1b64598c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_a9bf1b64598c_1"
+        {
+            over "mesh_a9bf1b64598c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_ae2a511d0e90"
+        {
+            over "mesh_ae2a511d0e90"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_ae2a511d0e90_1"
+        {
+            over "mesh_ae2a511d0e90"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_f1fed16a8c53"
+        {
+            over "mesh_f1fed16a8c53"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_83325c2047a5"
+        {
+            over "mesh_83325c2047a5"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_b938dffe3bfb"
+        {
+            over "mesh_b938dffe3bfb"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_e9d0b9157dd4"
+        {
+            over "mesh_e9d0b9157dd4"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_eda82a99a845"
+        {
+            over "mesh_eda82a99a845"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_a7aaef5777ef"
+        {
+            over "mesh_a7aaef5777ef"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_9219881f2c31"
+        {
+            over "mesh_9219881f2c31"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_01dc012ee196"
+        {
+            over "mesh_01dc012ee196"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_708ceae36d97"
+        {
+            over "mesh_708ceae36d97"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_2ddb03f874cb"
+        {
+            over "mesh_2ddb03f874cb"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_550ee93b6ba5"
+        {
+            over "mesh_550ee93b6ba5"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_cbac1eec663a"
+        {
+            over "mesh_cbac1eec663a"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_568519f1f71d"
+        {
+            over "mesh_568519f1f71d"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_2b733d673cf7"
+        {
+            over "mesh_2b733d673cf7"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_a66e512ecf69"
+        {
+            over "mesh_a66e512ecf69"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_9bbbc663c3cd"
+        {
+            over "mesh_9bbbc663c3cd"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_9bbbc663c3cd_1"
+        {
+            over "mesh_9bbbc663c3cd"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_a9b1691dbb06"
+        {
+            over "mesh_a9b1691dbb06"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_0a93bb6ad9e2"
+        {
+            over "mesh_0a93bb6ad9e2"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_0a93bb6ad9e2_1"
+        {
+            over "mesh_0a93bb6ad9e2"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_d6fa28ff57cc"
+        {
+            over "mesh_d6fa28ff57cc"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_7b1d62b607fc"
+        {
+            over "mesh_7b1d62b607fc"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_73271f55cfe1"
+        {
+            over "mesh_73271f55cfe1"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_2378a4cb1889"
+        {
+            over "mesh_2378a4cb1889"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_301bce806030"
+        {
+            over "mesh_301bce806030"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_f2e2fd7ab7f2"
+        {
+            over "mesh_f2e2fd7ab7f2"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_8bcbb3a44f5c"
+        {
+            over "mesh_8bcbb3a44f5c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "dogleg_simple_body_box"
+        {
+            bool physics:collisionEnabled = 0
+        }
+    }
+
+    over "left_front2_link"
+    {
+        over "mesh_e5da8932f69e"
+        {
+            over "mesh_e5da8932f69e"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_d2d635a24c08"
+        {
+            over "mesh_d2d635a24c08"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_a210abf8a921"
+        {
+            over "mesh_a210abf8a921"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_a49ebb03079d"
+        {
+            over "mesh_a49ebb03079d"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_6c4b8ae68f55"
+        {
+            over "mesh_6c4b8ae68f55"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_6c4b8ae68f55_1"
+        {
+            over "mesh_6c4b8ae68f55"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_f04f40dc8262"
+        {
+            over "mesh_f04f40dc8262"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_6a68c4f3cd0e"
+        {
+            over "mesh_6a68c4f3cd0e"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_0598f10b5a72"
+        {
+            over "mesh_0598f10b5a72"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_14f0ecc9191c"
+        {
+            over "mesh_14f0ecc9191c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_ddfd9183f22d"
+        {
+            over "mesh_ddfd9183f22d"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_ddfd9183f22d_1"
+        {
+            over "mesh_ddfd9183f22d"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_ddfd9183f22d_2"
+        {
+            over "mesh_ddfd9183f22d"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_04fcf748b3d9"
+        {
+            over "mesh_04fcf748b3d9"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_6df6b9036110"
+        {
+            over "mesh_6df6b9036110"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_fd2b23624e86"
+        {
+            over "mesh_fd2b23624e86"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_438756417698"
+        {
+            over "mesh_438756417698"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_8c7aa1110550"
+        {
+            over "mesh_8c7aa1110550"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_8c7aa1110550_1"
+        {
+            over "mesh_8c7aa1110550"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_8c7aa1110550_2"
+        {
+            over "mesh_8c7aa1110550"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_93874396d214"
+        {
+            over "mesh_93874396d214"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_258af10f2468"
+        {
+            over "mesh_258af10f2468"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_434b7adf86cc"
+        {
+            over "mesh_434b7adf86cc"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_93d351e4cd6a"
+        {
+            over "mesh_93d351e4cd6a"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_4529c834021c"
+        {
+            over "mesh_4529c834021c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "dogleg_simple_body_box"
+        {
+            bool physics:collisionEnabled = 0
+        }
+    }
+
+    over "right_front2_link"
+    {
+        over "mesh_7e88bd96b142"
+        {
+            over "mesh_7e88bd96b142"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_606a8821a7f5"
+        {
+            over "mesh_606a8821a7f5"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_0284b3622cde"
+        {
+            over "mesh_0284b3622cde"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_368429f6b5bd"
+        {
+            over "mesh_368429f6b5bd"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_6c4b8ae68f55"
+        {
+            over "mesh_6c4b8ae68f55"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_6c4b8ae68f55_1"
+        {
+            over "mesh_6c4b8ae68f55"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_b3274cd38a70"
+        {
+            over "mesh_b3274cd38a70"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_e8a40cdcf8a8"
+        {
+            over "mesh_e8a40cdcf8a8"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_1878cef39f47"
+        {
+            over "mesh_1878cef39f47"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_7ee130fd875d"
+        {
+            over "mesh_7ee130fd875d"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_b6c7ebff5e4c"
+        {
+            over "mesh_b6c7ebff5e4c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_b6c7ebff5e4c_1"
+        {
+            over "mesh_b6c7ebff5e4c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_b6c7ebff5e4c_2"
+        {
+            over "mesh_b6c7ebff5e4c"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_7a7b07addea0"
+        {
+            over "mesh_7a7b07addea0"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_7392ef36c530"
+        {
+            over "mesh_7392ef36c530"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_baf887ebcba5"
+        {
+            over "mesh_baf887ebcba5"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_220c3d319fef"
+        {
+            over "mesh_220c3d319fef"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_bb18560bea8e"
+        {
+            over "mesh_bb18560bea8e"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_bb18560bea8e_1"
+        {
+            over "mesh_bb18560bea8e"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_bb18560bea8e_2"
+        {
+            over "mesh_bb18560bea8e"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_9991a17f1f05"
+        {
+            over "mesh_9991a17f1f05"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_cd216665006a"
+        {
+            over "mesh_cd216665006a"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_ec4c0253ddd5"
+        {
+            over "mesh_ec4c0253ddd5"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_db1c95346247"
+        {
+            over "mesh_db1c95346247"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "mesh_0d29a6829840"
+        {
+            over "mesh_0d29a6829840"
+            {
+                bool physics:collisionEnabled = 1
+            }
+        }
+
+        over "dogleg_simple_body_box"
+        {
+            bool physics:collisionEnabled = 0
+        }
+    }
+}
+

@@ -32,11 +32,39 @@ parser.add_argument("--num_envs", type=int, default=None, help="Number of enviro
 parser.add_argument("--task", type=str, default=None, help="Name of the task.")
 parser.add_argument("--seed", type=int, default=None, help="Seed used for the environment")
 parser.add_argument("--max_iterations", type=int, default=None, help="RL Policy training iterations.")
+parser.add_argument("--preview_env_index", type=int, default=None, help="Show only this environment in a light GUI.")
+parser.add_argument("--preview_render_interval", type=int, default=20, help="Physics steps between preview frames.")
+parser.add_argument("--preview_width", type=int, default=960)
+parser.add_argument("--preview_height", type=int, default=540)
+parser.add_argument(
+    "--zero_command_env_fraction",
+    type=float,
+    default=None,
+    help="Override the fraction of environments assigned zero-velocity commands.",
+)
+parser.add_argument(
+    "--stand_still_lin_vel_weight",
+    type=float,
+    default=None,
+    help="Override the stand_still_lin_vel reward coefficient (normally negative).",
+)
+parser.add_argument(
+    "--checkpoint_tag",
+    type=str,
+    default=None,
+    help="One short label appended to periodic checkpoint filenames (e.g. model_500_flat.pt).",
+)
 parser.add_argument(
     "--resume_training",
     action="store_true",
     default=False,
     help="Resume optimizer state and iteration counter from --checkpoint, then continue from the next iteration.",
+)
+parser.add_argument(
+    "--resume_iteration_only",
+    action="store_true",
+    default=False,
+    help="Load policy weights and continue from checkpoint iteration, but initialize a fresh optimizer.",
 )
 parser.add_argument(
     "--distributed", action="store_true", default=False, help="Run training with multiple GPUs or nodes."
@@ -46,6 +74,18 @@ cli_args.add_rsl_rl_args(parser)
 # append AppLauncher cli args
 AppLauncher.add_app_launcher_args(parser)
 args_cli, hydra_args = parser.parse_known_args()
+if args_cli.resume_training and args_cli.resume_iteration_only:
+    parser.error("--resume_training and --resume_iteration_only are mutually exclusive")
+if (args_cli.resume_training or args_cli.resume_iteration_only) and args_cli.checkpoint is None:
+    parser.error("A checkpoint is required when restoring training progress")
+if args_cli.preview_env_index is not None:
+    if args_cli.headless or args_cli.video or args_cli.distributed:
+        parser.error("Single environment preview requires GUI mode, without --video or --distributed")
+    # AppLauncher forwards these SimulationApp options, rather than Hydra.
+    args_cli.width = args_cli.preview_width
+    args_cli.height = args_cli.preview_height
+    args_cli.window_width = args_cli.preview_width
+    args_cli.window_height = args_cli.preview_height
 
 # always enable cameras to record video
 if args_cli.video:
@@ -184,6 +224,15 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     agent_cfg.max_iterations = (
         args_cli.max_iterations if args_cli.max_iterations is not None else agent_cfg.max_iterations
     )
+    if args_cli.zero_command_env_fraction is not None:
+        fraction = args_cli.zero_command_env_fraction
+        if not 0.0 <= fraction <= 1.0:
+            raise ValueError("--zero_command_env_fraction must be between 0 and 1")
+        env_cfg.commands.rel_standing_envs = fraction
+    if args_cli.stand_still_lin_vel_weight is not None:
+        if args_cli.stand_still_lin_vel_weight > 0.0:
+            raise ValueError("--stand_still_lin_vel_weight must be zero or negative")
+        env_cfg.rewards["stand_still_lin_vel"] = args_cli.stand_still_lin_vel_weight
 
     # set the environment seed
     # note: certain randomizations occur in the environment initialization so we set the seed here
@@ -202,6 +251,14 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         env_cfg.seed = seed
         agent_cfg.seed = seed
 
+    if args_cli.preview_env_index is not None:
+        from scripts.utils.single_env_preview import configure_preview
+
+        configure_preview(
+            env_cfg, args_cli.preview_env_index, args_cli.preview_render_interval,
+            args_cli.preview_width, args_cli.preview_height,
+        )
+
     # specify directory for logging experiments
     log_root_path = os.path.join("logs", "rsl_rl", agent_cfg.experiment_name)
     log_root_path = os.path.abspath(log_root_path)
@@ -215,7 +272,14 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     log_dir = os.path.join(log_root_path, log_dir)
 
     # create isaac environment
-    env = gym.make(args_cli.task, cfg=env_cfg, render_mode="rgb_array" if args_cli.video else None)
+    if args_cli.preview_env_index is not None:
+        from scripts.utils.single_env_preview import isolate_preview, preview_initialization
+
+        with preview_initialization():
+            env = gym.make(args_cli.task, cfg=env_cfg)
+            isolate_preview(env.unwrapped, args_cli.preview_env_index, args_cli.preview_width, args_cli.preview_height)
+    else:
+        env = gym.make(args_cli.task, cfg=env_cfg, render_mode="rgb_array" if args_cli.video else None)
 
     # convert to single-agent instance if required by the RL algorithm
     if isinstance(env.unwrapped, DirectMARLEnv):
@@ -243,6 +307,25 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
 
     # create runner from rsl-rl
     runner = runner_class(env, agent_cfg.to_dict(), log_dir=log_dir, device=agent_cfg.device)
+    if args_cli.checkpoint_tag:
+        # RSL-RL hard-codes periodic names as model_<iteration>.pt. Wrap only
+        # this runner instance so tagged Dogleg runs remain easy to distinguish
+        # without changing the shared RSL-RL package or default filenames.
+        import re
+
+        checkpoint_tag = args_cli.checkpoint_tag
+        if not re.fullmatch(r"[A-Za-z0-9-]+", checkpoint_tag):
+            raise ValueError("--checkpoint_tag must be one short label using only letters, digits, or hyphens")
+        save_checkpoint = runner.save
+
+        def save_tagged_checkpoint(path, *save_args, **save_kwargs):
+            directory, filename = os.path.split(path)
+            match = re.fullmatch(r"model_(\d+)\.pt", filename)
+            if match:
+                path = os.path.join(directory, f"model_{match.group(1)}_{checkpoint_tag}.pt")
+            return save_checkpoint(path, *save_args, **save_kwargs)
+
+        runner.save = save_tagged_checkpoint
     # write git state to logs
     runner.add_git_repo_to_log(__file__)
     # load the checkpoint
@@ -259,6 +342,18 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             runner.current_learning_iteration += 1
             print(
                 f"[INFO]: Resuming training from next iteration: {runner.current_learning_iteration}"
+            )
+        elif args_cli.resume_iteration_only:
+            checkpoint_data = torch.load(resume_path, weights_only=False, map_location="cpu")
+            if "iter" not in checkpoint_data:
+                raise KeyError(f"Checkpoint has no iteration counter: {resume_path}")
+            checkpoint_iteration = int(checkpoint_data["iter"])
+            _load_policy_for_finetune(runner, resume_path)
+            runner.current_learning_iteration = checkpoint_iteration + 1
+            print(
+                "[INFO]: Loaded policy weights with a fresh optimizer; "
+                f"continuing at iteration {runner.current_learning_iteration} "
+                f"(checkpoint iteration {checkpoint_iteration})."
             )
         else:
             # Weight initialization / finetune-from-checkpoint workflow.

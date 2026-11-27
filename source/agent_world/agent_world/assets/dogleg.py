@@ -52,7 +52,10 @@ DOGLEG_NEUTRAL_JOINT_POS = {
 Dogleg_CFG = ArticulationCfg(
     soft_joint_pos_limit_factor=0.95,
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{AssetPath}/usd_files/dogleg_floating/dogleg_floating.usd",
+        # Contact-fixed physics overlay: retains the simplified collision
+        # shapes except base/front2, which use their original mesh colliders.
+        # It also exposes the referenced render meshes and keeps all 10 loops.
+        usd_path=f"{AssetPath}/usd_files/dogleg_floating/configuration/dogleg_floating_physics_contactfix.usda",
         activate_contact_sensors=True,
         copy_from_source=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
@@ -140,5 +143,14 @@ Dogleg_CFG = ArticulationCfg(
             armature=0.0001,
         ),
     },
+)
+
+# Pin the previous mesh-collider physics layer under a separate USD wrapper.
+# The original wrapper references dogleg_floating_physics.usd by name, and that
+# file has since been updated; this immutable copy keeps the comparison honest.
+DoglegLegacy_CFG = Dogleg_CFG.replace(
+    spawn=Dogleg_CFG.spawn.replace(
+        usd_path=f"{AssetPath}/usd_files/dogleg_floating/dogleg_floating_legacy.usda"
+    )
 )
 

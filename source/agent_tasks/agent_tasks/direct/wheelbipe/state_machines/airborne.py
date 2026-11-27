@@ -612,6 +612,13 @@ class AirborneStateMachine(WheelbipeStateMachineBase):
         speed_full = float(addition_cfg.get("full", 10.0))
         denom = max(speed_full - speed_start, 1.0e-6)
         wheel_vel = env.joint_vel[:, wheel_idx]
+        joint_velocity_signs = addition_cfg.get("joint_velocity_signs")
+        if joint_velocity_signs is not None:
+            # CAD models may use opposite positive axes for left/right wheels.
+            signs = wheel_vel.new_tensor([
+                joint_velocity_signs[env.robot.joint_names[idx]] for idx in wheel_idx
+            ])
+            wheel_vel = wheel_vel * signs
         directional_speed = wheel_vel * direction.unsqueeze(-1)
         wheel_scores = torch.clamp((directional_speed - speed_start) / denom, 0.0, 1.0)
 
